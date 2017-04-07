@@ -76,6 +76,7 @@ defmodule BLE.GenNode do
 
       @doc false
       def init(args) do
+        :os.cmd 'epmd -daemon' 
         role = :worker
         status = get_node_status() # :online or :offline
         tRef = enable_net_checker() # periodically checks the network status
